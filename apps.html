@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>APPS // SETUN LABS · Pocket AI Hub</title>
+<meta name="description" content="Pocket AI Hub, a phone app plus a PC companion (DESK console, CLI, daemon) that run AI entirely on your own hardware. No accounts, no cloud required, no telemetry. Measured, never estimated.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="theme-color" content="#0b0a09">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Setun Labs">
+<meta property="og:title" content="APPS // SETUN LABS · Pocket AI Hub">
+<meta property="og:description" content="Pocket AI Hub, a phone app plus a PC companion (DESK console, CLI, daemon) that run AI entirely on your own hardware. No accounts, no cloud required, no telemetry. Measured, never estimated.">
+<meta property="og:url" content="https://setunlabs.ai/apps.html">
+<meta property="og:image" content="https://setunlabs.ai/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="wordmark" href="index.html">
+      <span class="dot gold"></span>SETUN LABS
+      <span class="jp">セツン・ラボ</span>
+    </a>
+    <nav>
+      <a href="apps.html" class="on">APPS</a>
+      <a href="models.html">MODELS</a>
+      <a href="tools.html">TOOLS</a>
+      <a href="docs.html">DOCS</a>
+      <a href="news.html">NEWS</a>
+      <a href="support.html">SUPPORT</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="page-head">
+    <div class="mini-moon" aria-hidden="true"><span></span><span></span><span></span></div>
+    <div class="act-label reveal">// APPS ◈ POCKET AI HUB</div>
+    <h2 class="reveal">AI that lives<br>where your data does.</h2>
+    <div class="sec-jp reveal">あなたのデータは、あなたの場所に</div>
+    <div class="head-split">
+      <div>
+        <p class="creed-lead reveal">A phone app plus a PC companion, DESK console, CLI, and daemon, that run AI <b>entirely on your own hardware</b>: on the phone itself, on your PC over your LAN, or both at once. No accounts, no cloud required, no telemetry. Measured, never estimated.</p>
+        <p class="note-line reveal"><span class="warn">⬢ STATUS //</span> Feature-complete and in final on-device testing. No public download yet, the lists at the bottom get it first.</p>
+      </div>
+      <div class="stat-trio reveal">
+        <div class="stat" style="--rail: var(--gold)">
+          <div class="num"><span id="feature-count">0</span> FEATURES</div>
+          <div class="lbl">COUNTED, TESTED, AND DOCUMENTED IN THE FULL FEATURE AUDIT</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE PHONE APP ============ -->
+  <section style="padding-top:0">
+    <div class="act-label reveal">// THE PHONE APP</div>
+    <div class="grid4">
+      <div class="card c-gold reveal">
+        <span class="rail"></span><span class="br"></span>
+        <div class="tag">// 01</div>
+        <h3>Chat</h3>
+        <div class="card-jp">チャット</div>
+        <p>Streaming conversations with local models, with the full toolbox.</p>
+        <ul>
+          <li>History with search, regenerate, edit-and-resend</li>
+          <li>Markdown, image attachments (up to 4 per turn), export</li>
+          <li>Per chat, pick the source: this device or your PC</li>
+          <li>JSON mode, personas, per-model sampler configs</li>
+        </ul>
+      </div>
+
+      <div class="card c-green reveal">
+        <span class="rail"></span><span class="br"></span>
+        <div class="tag">// 02</div>
+        <h3>Models</h3>
+        <div class="card-jp">モデル</div>
+        <p>Your phone is profiled and the catalog is ranked by what actually fits it.</p>
+        <ul>
+          <li>Device profile: RAM, chip, storage, acceleration</li>
+          <li>Recommender ranks live Hugging Face models that fit</li>
+          <li>Real measured speeds after you run a benchmark</li>
+          <li>Resumable downloads with honest progress; sideload GGUFs</li>
+          <li>Tool-competence probe: can this model drive tools, on your device, not someone's chart</li>
+        </ul>
+      </div>
+
+      <div class="card c-blue reveal">
+        <span class="rail"></span><span class="br"></span>
+        <div class="tag">// 03</div>
+        <h3>Pair</h3>
+        <div class="card-jp">ペアリング</div>
+        <p>Link phone and PC over your LAN in one code.</p>
+        <ul>
+          <li>mDNS/UDP discovery or manual entry</li>
+          <li>6-digit verified pairing code</li>
+          <li>TLS with fingerprint pinning + cert-change detection</li>
+          <li>Plaintext consent gates, quick-pair resume</li>
+          <li>One tap to unpair or revoke</li>
+        </ul>
+      </div>
+
+      <div class="card c-red reveal">
+        <span class="rail"></span><span class="br"></span>
+        <div class="tag">// 04</div>
+        <h3>Devices</h3>
+        <div class="card-jp">デバイス</div>
+        <p>The device-pool dashboard.</p>
+        <ul>
+          <li>Every linked device: name, live status, battery, RAM, link health, measured speed</li>
+          <li>Honest fit / marginal / no verdict on joining work, with the math shown</li>
+          <li>Open, documented read-only API: <b>hubctl devices metrics --json</b></li>
+        </ul>
+      </div>
+
+      <div class="card c-gold reveal">
+        <span class="rail"></span><span class="br"></span>
+        <div class="tag">// 05</div>
+        <h3>Agents</h3>
+        <div class="card-jp">エージェント</div>
+        <p>Three modes.</p>
+        <ul>
+          <li>A labeled cascade demo</li>
+          <li>Real supervision of your PC's coding agents: watch live, approve/deny with countdowns, steer, start per project</li>
+          <li>Task scheduler: queue prompts for later, results pushed to your phone</li>
+        </ul>
+      </div>
+
+      <div class="card c-green reveal">
+        <span class="rail"></span><span class="br"></span>
+        <div class="tag">// 06</div>
+        <h3>Tools &amp; Safety</h3>
+        <div class="card-jp">道具と安全</div>
+        <p>The AI can act, under your rules.</p>
+        <ul>
+          <li>Actions: shell, files, launch apps, web search, reminders, your own custom tools</li>
+          <li>Four-tier permissions: yolo / ask / deny / custom</li>
+          <li>Approval cards on your phone</li>
+          <li>Append-only audit log, viewable and exportable; failures in plain language</li>
+        </ul>
+      </div>
+
+      <div class="card c-blue reveal">
+        <span class="rail"></span><span class="br"></span>
+        <div class="tag">// 07</div>
+        <h3>Memory &amp; Files</h3>
+        <div class="card-jp">記憶とファイル</div>
+        <p>Your context stays yours.</p>
+        <ul>
+          <li>Opt-in cross-chat memory: you pin what's remembered, wipe anytime</li>
+          <li>On-device RAG: point the AI at your folders and answers quote your own documents, sources shown</li>
+        </ul>
+      </div>
+
+      <div class="card c-red reveal">
+        <span class="rail"></span><span class="br"></span>
+        <div class="tag">// 08</div>
+        <h3>Settings</h3>
+        <div class="card-jp">設定</div>
+        <p>Yours to shape.</p>
+        <ul>
+          <li>10 theme presets + a custom editor</li>
+          <li>Reduced motion, power modes, battery-exemption guidance</li>
+          <li>Consent-gated phone control, notifications, tutorial replay</li>
+          <li>Catalog management, benchmark export</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE DESK CONSOLE ============ -->
+  <section style="padding-top:0">
+    <div class="act-label reveal">// THE DESK CONSOLE ◈ PC</div>
+    <div class="commit reveal">
+      <div class="commit-row">
+        <span class="k">THE CONSOLE</span>
+        <span class="v">A full PC console: hub start/stop, live pairing codes, connected phones, relay activity, AI source management (auto-detect + auto-adopt, OpenAI-compatible, opencode, Claude Code, any CLI, custom tools), tool-security editor, supervision deck (watch / approve / steer), log tail, audit deck, phone-chats reader, docs reader, themes, and the same tutorial.</span>
+      </div>
+      <div class="commit-row">
+        <span class="k">HUBCTL</span>
+        <span class="v">Every one of those functions, scriptable from the terminal.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE HARD PARTS ============ -->
+  <section style="padding-top:0">
+    <div class="act-label reveal">// THE HARD PARTS NOBODY ELSE SHIPS</div>
+    <div class="commit reveal">
+      <div class="commit-row">
+        <span class="k">PHONE AS AI SOURCE</span>
+        <span class="v">Opt in, and your PC runs prompts on your phone's model over the link, one engine, shared honestly.</span>
+      </div>
+      <div class="commit-row">
+        <span class="k">DEVICE POOLING</span>
+        <span class="v">Tensor-parallel inference across your phone + PC via llama.cpp RPC, with honest measured numbers, and honest "not worth it" verdicts when it isn't.</span>
+      </div>
+      <div class="commit-row">
+        <span class="k">AGENTS CONTROLLING PHONES</span>
+        <span class="v">Consent-gated screen read plus tap / type / swipe from a PC agent, audited.</span>
+      </div>
+      <div class="commit-row">
+        <span class="k">CASCADE JUDGING</span>
+        <span class="v">A small model answers; a calibrator judges confidence; weak answers escalate to a bigger AI, with an honest UNRATED when judging can't be proven.</span>
+      </div>
+      <div class="commit-row">
+        <span class="k">ENCRYPTED, AUDITED, HONEST</span>
+        <span class="v">TLS with pinned fingerprints, permission tiers, decision TTLs, an audit ring, and a UI that says what's true, measured, never estimated.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ OPEN-CORE ============ -->
+  <section style="padding-top:0">
+    <div class="act-label reveal">// OPEN-CORE ◈ STATED PLAINLY</div>
+    <p class="creed-lead reveal">Everything you run is open, <b>FSL-1.1</b>, converting to Apache-2.0 two years after each release. Here is exactly where the line falls:</p>
+    <div class="commit reveal">
+      <div class="commit-row">
+        <span class="k"><span class="dot green"></span>Open · the app</span>
+        <span class="v">The entire mobile app (Android; iOS in progress): chat, models and recommender, downloads, benchmarks, pairing, device dashboard, agents, settings, themes, tutorial, RAG, vision, memory, the phone-control stack. Every screen and every animation is in the repo.</span>
+        <span class="badge">◈ FSL-1.1</span>
+      </div>
+      <div class="commit-row">
+        <span class="k"><span class="dot green"></span>Open · the desktop</span>
+        <span class="v">The DESK console (all nine decks), hubctl (every command), and hubd, the daemon itself, the heart of the system.</span>
+        <span class="badge">◈ FSL-1.1</span>
+      </div>
+      <div class="commit-row">
+        <span class="k"><span class="dot green"></span>Open · the protocol</span>
+        <span class="v">Every wire frame is documented, pairing, chat relay, tools, decisions, tasks, audit, sync, device metrics, phone generation, phone control, the pool. Anyone can build a client against it.</span>
+        <span class="badge">◈ DOCUMENTED</span>
+      </div>
+      <div class="commit-row">
+        <span class="k"><span class="dot green"></span>Open · data &amp; seams</span>
+        <span class="v">The device-metrics API is stable, documented, read-only. The benchmark JSON schema, the CascadeJudge interface, the tool-pack format, the CLI registry, the catalog file, all open and user-editable.</span>
+        <span class="badge">◈ YOURS</span>
+      </div>
+      <div class="commit-row">
+        <span class="k"><span class="dot gold"></span>Closed · two things</span>
+        <span class="v">Deliberately: the calibration tuning behind CascadeJudge (the interface is open; the tuning is the trade secret), and the future hosted benchmark-aggregation service (nothing in the app depends on it; no open feature is gated on it).</span>
+        <span class="badge">◈ THE BUSINESS</span>
+      </div>
+      <div class="commit-row">
+        <span class="k">The rule</span>
+        <span class="v">If a closed piece vanished tomorrow, the open product loses nothing.</span>
+        <span class="badge">◈ HELD TO</span>
+      </div>
+    </div>
+    <p class="note-line reveal"><span class="warn">⬢ FINE PRINT //</span> FSL-1.1 means source-available now, Apache-2.0 automatically two years after each release, you're never locked in forever. "Open" covers code and protocol: your API keys, models, chats, and device names never touch anything we run, there is no server. The mobile and desktop apps are one codebase sharing one design system, so "open" means identically open on both.</p>
+  </section>
+
+  <!-- ============ STAY CLOSE ============ -->
+  <section style="padding-top:0" id="signup">
+    <h3 class="sub-h reveal">STAY CLOSE<span class="sub-jp">近づいて</span></h3>
+    <div class="launch-box reveal">
+      <span class="br"></span>
+      <h2 style="margin-bottom:0">Hear it from us when it launches.</h2>
+      <div class="sec-jp" style="margin-bottom:0">起動を待つ</div>
+      <div class="launch-meta">
+        <span><b>PLATFORM</b> // ANDROID FIRST</span>
+        <span><b>STATUS</b> // <span class="dot gold" style="margin:0 6px 0 0"></span>FINAL ON-DEVICE TESTING</span>
+        <span><b>COST</b> // FREE LISTS, NO SPAM</span>
+      </div>
+
+      <!-- Live: POSTs to the lab's Google Form (see theme.js); responses land in the linked Google Sheet. -->
+      <form class="waitlist signup" action="#" method="post">
+        <div class="signup-lists">
+          <label><input type="checkbox" class="signup-list" value="Notifications on upcoming releases &amp; projects"> <b>NOTIFY LIST</b>: one email at launch and at every release</label>
+          <label><input type="checkbox" class="signup-list" value="Sign up to beta test future projects"> <b>BETA LIST</b>: test builds before anyone else, rough edges included</label>
+          <label><input type="checkbox" class="signup-list" value="Sign up for early access"> <b>EARLY ACCESS</b>, first invitations as new features open up</label>
+          <label><input type="checkbox" class="signup-list" value="Sign up for alerts for deals and events regarding Setun Labs"> <b>ALERTS</b>: deals and events regarding Setun Labs</label>
+        </div>
+        <input type="email" id="signup-email" placeholder="operator@your.lan" required autocomplete="email" aria-label="Email address">
+        <button class="btn primary" type="submit">SIGN UP</button>
+      </form>
+      <div id="signup-status" role="status"></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="row">
+      <span>SETUN LABS<span class="sep">⬢</span>BY <a href="https://x.com/Jinzurei" target="_blank" rel="noopener">JINZUREI</a><span class="sep">⬢</span>SETUNLABS.AI<span class="sep">⬢</span><a href="mailto:setunlabs@gmail.com">SETUNLABS@GMAIL.COM</a></span>
+      <span>© 2026 // ALL SIGNALS LOCAL</span>
+    </div>
+    <div class="row" style="margin-top:14px">
+      <span><a href="apps.html">APPS</a><span class="sep">·</span><a href="models.html">MODELS</a><span class="sep">·</span><a href="tools.html">TOOLS</a><span class="sep">·</span><a href="docs.html">DOCS</a><span class="sep">·</span><a href="news.html">NEWS</a><span class="sep">·</span><a href="support.html">SUPPORT</a><span class="sep">·</span><a href="privacy.html">PRIVACY</a><span class="sep">·</span><a href="https://github.com/Setun-Labs" target="_blank" rel="noopener">GITHUB</a></span>
+    </div>
+    <div class="jp">三つの階層。一つの意志。あなたのデータは、あなたのもの。</div>
+    <div class="egg">// Site theme adapted from the operator's own desktop shell.</div>
+  </div>
+</footer>
+
+<script src="theme.js"></script>
+</body>
+</html>
