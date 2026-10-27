@@ -142,19 +142,41 @@
   }
   nav a:hover { color: var(--fg); }
   nav a::before { content: '▸ '; color: var(--fg-faint); }
-  @media (max-width: 1080px) {
-    nav a:nth-child(4), nav a:nth-child(5) { display: none; }
+  @media (max-width: 900px) {
+    header #nav-toggle { display: block; }
+    header nav {
+      display: none;
+      position: absolute;
+      top: 56px;
+      right: 12px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 14px;
+      background: var(--panel);
+      border: 1px solid var(--border-hi);
+      padding: 16px 22px;
+      z-index: 6000;
+    }
+    header nav.open { display: flex; }
+    header nav a { font-size: 12px; }
   }
+  #nav-toggle {
+    display: none;
+    font-family: inherit;
+    font-size: 15px;
+    letter-spacing: 1px;
+    color: var(--fg);
+    background: none;
+    border: 1px solid var(--border-hi);
+    padding: 5px 11px;
+    cursor: pointer;
+  }
+  #nav-toggle:hover { border-color: var(--gold); color: var(--gold); }
+
   @media (max-width: 720px) {
     .header-inner { padding: 0 20px; }
     .wordmark { font-size: 13px; gap: 8px; }
     .wordmark .jp { display: none; }
-    nav { gap: 14px; }
-    nav a { font-size: 10px; }
-    nav a:nth-child(3) { display: none; }
-  }
-  @media (max-width: 400px) {
-    nav a:nth-child(2) { display: none; } /* MODELS still in footer + cards */
   }
 
   main { position: relative; z-index: 1; }

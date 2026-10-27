@@ -71,6 +71,22 @@
     io.observe(el);
   });
 
+  /* ---------- mobile nav (hamburger) ---------- */
+  var navToggle = document.getElementById('nav-toggle');
+  if (navToggle) {
+    var headerNav = document.querySelector('header nav');
+    navToggle.addEventListener('click', function () {
+      var open = headerNav.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    headerNav.addEventListener('click', function (ev) {
+      if (ev.target.tagName === 'A') {
+        headerNav.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
   /* ---------- feature counter (apps page) ---------- */
   var fc = document.getElementById('feature-count');
   if (fc) {
