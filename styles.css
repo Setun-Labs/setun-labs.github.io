@@ -914,3 +914,23 @@ nav a.on::before { color: var(--gold); }
   .news-item { padding: 28px 22px; }
   .news-item p { font-size: 14px; line-height: 1.8; }
 }
+
+/* ---------- footer wrapping on narrow screens ---------- */
+/* the identity row's email is one long word, and the links row has no
+   whitespace between elements; both must be allowed to wrap */
+.footer-inner .row > span { overflow-wrap: anywhere; }
+.footer-inner .row:nth-child(2) > span {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 10px;
+}
+@media (max-width: 720px) {
+  /* wrap the identity row at element boundaries so the email link
+     stays whole on its own line instead of splitting mid-word */
+  .footer-inner .row:first-child > span:first-child {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 8px;
+    column-gap: 6px;
+  }
+}
