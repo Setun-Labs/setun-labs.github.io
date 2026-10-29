@@ -414,7 +414,7 @@
     /* pulse schedule: signals travel the figure's own edges */
     pulses = [];
     var prng = mulberry32(0x1A2B3C);
-    var ts = 1.6;
+    var ts = 0.4;
     for (i = 0; i < 400; i++) {
       pulses.push({
         start: ts,
@@ -455,7 +455,7 @@
 
     if (glow) {
       var g = ctx.createRadialGradient(x, y, s * 0.2, x, y, s * 3.4);
-      g.addColorStop(0, 'rgba(' + rgb + ',' + (0.14 * tw).toFixed(3) + ')');
+      g.addColorStop(0, 'rgba(' + rgb + ',' + (0.20 * tw).toFixed(3) + ')');
       g.addColorStop(1, 'rgba(' + rgb + ',0)');
       ctx.fillStyle = g;
       ctx.fillRect(x - s * 3.5, y - s * 3.5, s * 7, s * 7);
@@ -549,7 +549,7 @@
     ctx.lineWidth = 1;
     for (i = 0; i < EDGES.length; i++) {
       var dimEdge = i >= 8 && i <= 10;
-      ctx.strokeStyle = 'rgba(' + SEPIA + ',' + (dimEdge ? 0.16 : 0.34) + ')';
+      ctx.strokeStyle = 'rgba(' + SEPIA + ',' + (dimEdge ? 0.22 : 0.44) + ')';
       edgePoint(EDGES[i][0], t, PA);
       edgePoint(EDGES[i][1], t, PB);
       ctx.beginPath();
@@ -590,8 +590,8 @@
         var c = CONSTELLATION[n.const];
         drawStar(x, y, c.s, t, n.phase, false, !c.dim, c.col);
       } else {
-        var alpha2 = 0.34;
-        if (n.breathe) alpha2 = 0.34 * (0.55 + 0.45 * Math.sin((t * TAU) / 2.6 + n.phase));
+        var alpha2 = 0.42;
+        if (n.breathe) alpha2 = alpha2 * (0.55 + 0.45 * Math.sin((t * TAU) / 2.6 + n.phase));
         ctx.beginPath();
         ctx.arc(x, y, n.size, 0, TAU);
         ctx.fillStyle = 'rgba(' + SEPIA + ',' + alpha2.toFixed(3) + ')';
