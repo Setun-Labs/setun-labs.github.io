@@ -15,5 +15,5 @@ lists post to a Google Form (see `theme.js`).
 - `index.html` — front door, the creed (the Three Stars)
 - `apps.html` — Pocket AI Hub
 - `models.html` — the Grimm Series (classes + specialists)
-- `tools.html`, `docs.html`, `news.html`, `support.html`, `privacy.html`
+- `tools.html`, `docs.html`, `news.html`, `support.html`, `staff.html`, `privacy.html`
 - `styles.css`, `theme.js` — one design system, one script

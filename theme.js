@@ -171,6 +171,46 @@
       });
     });
   });
+
+  /* ---------- article share (news page) ----------
+     Native share sheet where the browser offers one, clipboard with a
+     confirmation label everywhere else. */
+  document.querySelectorAll('[data-share]').forEach(function (btn) {
+    var label = btn.querySelector('span');
+    var orig = label ? label.textContent : '';
+    function copied() {
+      if (!label) return;
+      label.textContent = 'LINK COPIED';
+      setTimeout(function () { label.textContent = orig; }, 1600);
+    }
+    function copyFallback() {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(btn.getAttribute('data-share-url') || location.href).then(copied, function () {});
+      } else {
+        var tmp = document.createElement('textarea');
+        tmp.value = btn.getAttribute('data-share-url') || location.href;
+        document.body.appendChild(tmp);
+        tmp.select();
+        try { document.execCommand('copy'); copied(); } catch (e) { /* no-op */ }
+        document.body.removeChild(tmp);
+      }
+    }
+    btn.addEventListener('click', function () {
+      var payload = {
+        title: btn.getAttribute('data-share-title') || document.title,
+        text: btn.getAttribute('data-share-text') || '',
+        url: btn.getAttribute('data-share-url') || location.href
+      };
+      if (navigator.share) {
+        navigator.share(payload).catch(function (err) {
+          if (err && err.name === 'AbortError') return;
+          copyFallback();
+        });
+      } else {
+        copyFallback();
+      }
+    });
+  });
 })();
 
 /* ---------- hero background: Orion + a deep field ----------
