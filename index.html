@@ -3,151 +3,290 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SETUN LABS // Independent lab for ternary, on-device AI</title>
-<meta name="description" content="Setun Labs, an independent lab building ternary, on-device AI. This site explains what we stand for and what we're working toward.">
+<title>SETUN LABS // Under Maintenance</title>
+<meta name="description" content="Setun Labs is under maintenance. We will be back.">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <meta name="theme-color" content="#0b0a09">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Setun Labs">
-<meta property="og:title" content="SETUN LABS // Independent lab for ternary, on-device AI">
-<meta property="og:description" content="Setun Labs, an independent lab building ternary, on-device AI. This site explains what we stand for and what we're working toward.">
+<meta property="og:title" content="SETUN LABS // Under Maintenance">
+<meta property="og:description" content="Setun Labs is under maintenance. We will be back.">
 <meta property="og:url" content="https://setunlabs.ai/">
 <meta property="og:image" content="https://setunlabs.ai/og.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="styles.css">
+<style>
+@font-face {
+  font-family: 'Share Tech Mono';
+  src: url('fonts/ShareTechMono-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --bg: #0b0a09;
+  --fg: #c8b89a;
+  --fg-dim: rgba(200,184,154,0.62);
+  --fg-faint: rgba(200,184,154,0.34);
+  --green: #60a880;
+  --gold: #c8a860;
+  --border: rgba(200,184,154,0.14);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; border-radius: 0; }
+
+html, body { height: 100%; overflow-x: hidden; }
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'Share Tech Mono', ui-monospace, 'Cascadia Mono', monospace;
+  font-size: 15px;
+  line-height: 1.65;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+::selection { background: var(--gold); color: var(--bg); }
+
+/* ---- scanlines ---- */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 2px,
+    rgba(200,184,154,0.05) 2px,
+    rgba(200,184,154,0.05) 3px
+  );
+  opacity: 0.06;
+  pointer-events: none;
+  z-index: 9000;
+}
+
+a { color: var(--fg); text-decoration: none; }
+a:hover { color: var(--gold); }
+
+/* ---- status dots ---- */
+.dot {
+  display: inline-block;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  margin-right: 9px;
+  vertical-align: 2px;
+  animation: breathe 2.6s ease-in-out infinite;
+}
+.dot.gold  { background: var(--gold);  box-shadow: 0 0 6px rgba(200,168,96,0.55); }
+.dot.amber { background: var(--gold);  box-shadow: 0 0 6px rgba(200,168,96,0.55); }
+@keyframes breathe {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+header {
+  border-bottom: 1px solid var(--border);
+  padding: 18px 24px;
+}
+
+.wordmark {
+  font-size: 15px;
+  letter-spacing: 3px;
+  font-weight: 700;
+}
+.wordmark .jp {
+  margin-left: 12px;
+  color: var(--fg-faint);
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 48px 24px;
+}
+
+#sky {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.panel {
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+  width: 100%;
+  text-align: center;
+}
+
+.kicker {
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: var(--gold);
+  margin-bottom: 28px;
+  animation: pulse 2.2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+
+h1 {
+  font-size: clamp(34px, 6vw, 56px);
+  line-height: 1.15;
+  letter-spacing: 2px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+h1 .accent { color: var(--gold); }
+
+.sub {
+  color: var(--fg-dim);
+  font-size: 15px;
+  max-width: 480px;
+  margin: 0 auto 20px;
+}
+
+.jp-line {
+  color: var(--fg-faint);
+  font-size: 13px;
+  letter-spacing: 3px;
+  margin-bottom: 40px;
+}
+
+.stars {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  margin-bottom: 40px;
+}
+.stars span {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--fg);
+  box-shadow: 0 0 8px rgba(200,184,154,0.6);
+  animation: breathe 2.6s ease-in-out infinite;
+}
+.stars span:nth-child(2) { animation-delay: 0.6s; }
+.stars span:nth-child(3) { animation-delay: 1.2s; }
+
+.contact {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: var(--fg-faint);
+}
+.contact a { color: var(--fg-dim); border-bottom: 1px solid var(--border); }
+.contact a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+
+footer {
+  border-top: 1px solid var(--border);
+  padding: 16px 24px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--fg-faint);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+</style>
 </head>
 <body>
 
-<!-- boot sequence -->
-<div id="boot" aria-hidden="true">
-  <div id="boot-lines"></div>
-  <div id="boot-skip">SCROLL / CLICK TO SKIP ▸</div>
-</div>
-
 <header>
-  <div class="header-inner">
-    <a class="wordmark" href="index.html">
-      <span class="dot gold"></span>SETUN LABS
-      <span class="jp">セツン・ラボ</span>
-    </a>
-    <button id="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
-    <nav>
-      <a href="apps.html">APPS</a>
-      <a href="models.html">MODELS</a>
-      <a href="tools.html">TOOLS</a>
-      <a href="docs.html">DOCS</a>
-      <a href="news.html">NEWS</a>
-      <a href="support.html">SUPPORT</a>
-      <a href="staff.html">STAFF</a>
-    </nav>
-  </div>
+  <a class="wordmark" href="/">
+    <span class="dot gold"></span>SETUN LABS
+    <span class="jp">セツン・ラボ</span>
+  </a>
 </header>
 
 <main>
-
-  <!-- ============ HERO ============ -->
-  <section id="hero">
-    <canvas id="hero-bg" aria-hidden="true"></canvas>
-    <div class="hero-veil" aria-hidden="true"></div>
-    <div class="hero-kicker reveal"><span class="dot green"></span>NOW ONLINE // SETUN LABS · AN INDEPENDENT LAB FOR TERNARY, ON-DEVICE AI</div>
-    <h1 class="reveal">AI SHOULD LIVE<br>WHERE YOUR <span class="accent">DATA</span> DOES.</h1>
-    <p class="hero-sub reveal">Setun Labs is a small independent lab building AI that runs on hardware you own, <b>not in someone else's data center.</b> This site is our front door: what we stand for, and what we're working toward.</p>
-    <div class="hero-jp reveal">あなたのデータは、あなたの場所に。</div>
-
-    <div class="hero-cta reveal">
-      <a class="btn primary" href="staff.html">JOIN · PARTNER · FUND</a>
-      <a class="btn ghost" href="news.html">READ THE TRANSMISSION</a>
-      <a class="btn ghost" href="models.html">THE MODEL PROGRAM ▸</a>
-    </div>
-
-    <div class="scroll-hint">▼ SCROLL // スクロール</div>
-  </section>
-
-  <!-- ============ WHAT WE DO ============ -->
-  <section>
-    <div class="act-label reveal">// THE LAB ◈ THREE ARMS, ONE RULE</div>
-    <h2 class="reveal">One rule carries<br>everything we make.</h2>
-    <div class="sec-jp reveal">あなたの機器の上で動くAI</div>
-    <p class="creed-lead reveal">Your questions, your files and your accounts stay with you. If a product ever offers to connect a paid cloud AI, you plug it in yourself, and the software shows you every request before it leaves. We work in three arms, every one of them in development:</p>
-
-    <div class="grid3">
-      <div class="card c-green reveal">
-        <span class="rail"></span><span class="br"></span>
-        <div class="tag">⬢ ARM 01</div>
-        <h3>Tools</h3>
-        <div class="card-jp">道具</div>
-        <p>Open-source plumbing for local AI, the background worker that does jobs on your computer, connectors for AI services, and a public database of measured model performance. In development.</p>
-        <a class="dlink" href="tools.html">▸ THE TOOLS PAGE</a>
-      </div>
-
-      <div class="card c-gold reveal">
-        <span class="rail"></span><span class="br"></span>
-        <div class="tag">◈ ARM 02</div>
-        <h3>Models</h3>
-        <div class="card-jp">モデル</div>
-        <p>The Grimm Series: classes of specialist models with three-value weights {−1, 0, +1}, tuned to run on pocket hardware. A math specialist proof of concept is in development now.</p>
-        <a class="dlink" href="models.html">▸ THE MODELS PAGE</a>
-      </div>
-
-      <div class="card c-blue reveal">
-        <span class="rail"></span><span class="br"></span>
-        <div class="tag">▸ ARM 03</div>
-        <h3>Apps</h3>
-        <div class="card-jp">アプリ</div>
-        <p>Pocket AI Hub (working title), one app designed to run AI on your phone, recruit your computer for big jobs, and connect every AI you already use. In development.</p>
-        <a class="dlink" href="apps.html">▸ THE APPS PAGE</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ TRANSMISSIONS ============ -->
-  <section>
-    <div class="act-label reveal">// LATEST ◈ TRANSMISSIONS</div>
-    <div class="news-item reveal">
-      <div class="nd">2026-10-26 // LOG 001</div>
-      <h3>Setun Labs goes online</h3>
-      <p>The lab opens its doors, what we stand for (mechanism before scale, refutation over abandonment, one domain, zero doubt), what we're building, and the honest status of every piece. <a href="news.html">▸ READ THE TRANSMISSION</a></p>
-    </div>
-    <p class="note-line reveal"><span class="warn">⬢</span> <a href="news.html">▸ ALL TRANSMISSIONS</a></p>
-  </section>
-
-  <!-- ============ CREED ============ -->
-  <section>
-    <div class="act-label reveal">// THE CREED ◈ THE THREE STARS</div>
-    <h2 class="reveal">Three stars.<br>One line.</h2>
-    <div class="sec-jp reveal">三つの星 · オリオンのベルト</div>
-    <p class="creed-lead reveal">Our mark is Orion's Belt: three stars in a straight line, the only fixed geometry in a sky of scattered light. They have been called the Three Kings, the Girdle, the String of Pearls. We do not use them as ornament. We use them as a reminder of what we are.</p>
-    <div class="commit reveal">
-      <div class="commit-row">
-        <span class="k">ALNITAK<br><span style="font-size:10px;letter-spacing:2px;color:var(--fg-dim)">THE GIRDLE</span></span>
-        <span class="v"><b>Mechanism before scale.</b> Orion is a hunter dismembered across the sky. Without the belt, the arms and legs drift apart. Without the mechanism, the lab is just parameters and hope. The belt is not the brightest part of the constellation. It is the part that makes the constellation coherent. We build the belt first. Everything else hangs from it.</span>
-      </div>
-      <div class="commit-row">
-        <span class="k">ALNILAM<br><span style="font-size:10px;letter-spacing:2px;color:var(--fg-dim)">THE STRING OF PEARLS</span></span>
-        <span class="v"><b>Refutation over abandonment.</b> Osiris is murdered, scattered, lost. Isis recovers the pieces. The missing fragment is replaced by something perfect and artificial. On the third day the body is whole. This is not miracle. It is protocol: test, kill, rebuild, rerun. The string does not deny the breaking. It presumes it. The only terminal state is understanding.</span>
-      </div>
-      <div class="commit-row">
-        <span class="k">MINTAKA<br><span style="font-size:10px;letter-spacing:2px;color:var(--fg-dim)">THE BELT</span></span>
-        <span class="v"><b>One domain, zero doubt.</b> Orion does not hunt everything. He hunts specific prey, across specific seasons, with specific weapons held by the belt. The belt is what he reaches for. It is what keeps the sword and shield from falling into the dark. We do not build generalists that are occasionally right about everything. We build specialists that cannot be wrong about one thing. The domain is the boundary. The boundary is the strength.</span>
-      </div>
-    </div>
-    <p class="note-line reveal"><span class="warn">⬢ THE LINE THEY FORM //</span> Three stars. One line. Not because they are close, but because they align across immense distance. That alignment is the lab. Each principle is a star, independent and distant. Together they point in one direction. Remove any star and the line dissolves. Remove any principle and the lab is just noise. Orion rises and sets. The line remains.</p>
-  </section>
-
+  <canvas id="sky" aria-hidden="true"></canvas>
+  <div class="panel">
+    <div class="kicker"><span class="dot amber"></span>UNDER MAINTENANCE // メンテナンス中</div>
+    <h1>WE WILL BE <span class="accent">BACK</span>.</h1>
+    <p class="sub">Setun Labs is down for maintenance.</p>
+    <div class="jp-line">ただいま工事中。またすぐに戻ります。</div>
+    <div class="stars" aria-hidden="true"><span></span><span></span><span></span></div>
+    <p class="contact">QUESTIONS // <a href="mailto:setunlabs@gmail.com">SETUNLABS@GMAIL.COM</a></p>
+  </div>
 </main>
 
 <footer>
-  <div class="footer-inner">
-    <div class="row">
-      <span>SETUN LABS<span class="sep">⬢</span>SETUNLABS.AI<span class="sep">⬢</span><a href="mailto:setunlabs@gmail.com">SETUNLABS@GMAIL.COM</a></span>
-      <span>© 2026 // ALL SIGNALS LOCAL</span>
-    </div>
-    <div class="row" style="margin-top:14px">
-      <span><a href="apps.html">APPS</a><span class="sep">·</span><a href="models.html">MODELS</a><span class="sep">·</span><a href="tools.html">TOOLS</a><span class="sep">·</span><a href="docs.html">DOCS</a><span class="sep">·</span><a href="news.html">NEWS</a><span class="sep">·</span><a href="support.html">SUPPORT</a><span class="sep">·</span><a href="staff.html">STAFF</a><span class="sep">·</span><a href="privacy.html">PRIVACY</a><span class="sep">·</span><a href="https://github.com/Setun-Labs" target="_blank" rel="noopener">GITHUB</a></span>
-    </div>
-  </div>
+  <span>SETUN LABS ⬢ SETUNLABS.AI</span>
+  <span>© 2026 // ALL SIGNALS LOCAL</span>
 </footer>
 
-<script src="theme.js"></script>
+<script>
+// Three stars, one line — Orion's Belt over a quiet sky.
+(function () {
+  const canvas = document.getElementById('sky');
+  const ctx = canvas.getContext('2d');
+  let stars = [];
+
+  function resize() {
+    canvas.width = canvas.clientWidth * devicePixelRatio;
+    canvas.height = canvas.clientHeight * devicePixelRatio;
+    seed();
+  }
+
+  function seed() {
+    stars = [];
+    const n = Math.floor((canvas.width * canvas.height) / 14000);
+    for (let i = 0; i < n; i++) {
+      stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: (Math.random() * 0.9 + 0.3) * devicePixelRatio,
+        p: Math.random() * Math.PI * 2,
+        s: 0.4 + Math.random() * 0.8
+      });
+    }
+    // the belt: three stars in a line, slightly tilted
+    const cx = canvas.width / 2, cy = canvas.height * 0.32;
+    const gap = Math.min(canvas.width, canvas.height) * 0.09;
+    const tilt = 0.12;
+    for (let i = -1; i <= 1; i++) {
+      stars.push({
+        x: cx + i * gap,
+        y: cy + i * gap * tilt,
+        r: 2.2 * devicePixelRatio,
+        p: Math.random() * Math.PI * 2,
+        s: 0.5,
+        belt: true
+      });
+    }
+  }
+
+  function draw(t) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (const st of stars) {
+      const a = 0.25 + 0.55 * (0.5 + 0.5 * Math.sin(t * 0.001 * st.s + st.p));
+      ctx.beginPath();
+      ctx.arc(st.x, st.y, st.r, 0, Math.PI * 2);
+      ctx.fillStyle = st.belt
+        ? `rgba(200,168,96,${a})`
+        : `rgba(200,184,154,${a * 0.7})`;
+      ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+
+  addEventListener('resize', resize);
+  resize();
+  requestAnimationFrame(draw);
+})();
+</script>
+
 </body>
 </html>
